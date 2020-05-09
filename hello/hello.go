@@ -2,8 +2,13 @@ package main
 
 import "fmt"
 
+// define constants:
+//  Constants should improve performance of your application
+//  as it saves you creating the "Hello, " string instance every time Hello is called.
+const englishHelloPrefix = "Hello, "
+
 func Hello(name string) string {
-	return "Hello, " + name
+	return englishHelloPrefix + name
 }
 
 func main() {
