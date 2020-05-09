@@ -8,6 +8,11 @@ import "fmt"
 const englishHelloPrefix = "Hello, "
 
 func Hello(name string) string {
+	// checks for blank string params
+	if name == "" {
+		name = "World"
+	}
+
 	return englishHelloPrefix + name
 }
 
