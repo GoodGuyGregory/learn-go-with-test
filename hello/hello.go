@@ -13,21 +13,35 @@ const spanishHelloPrefix = "Hola, "
 const french = "French"
 const frenchHelloPrefix = "Bonjour, "
 
+const german = "German"
+const germanHelloPrefix = "Hallo, "
+
 func Hello(name string, language string) string {
 	// checks for blank string params
 	if name == "" {
 		name = "World"
 	}
 
-	if language == spanish {
-		return spanishHelloPrefix + name
-	}
+	// refactors for language handler
+	return greetingPrefix(language) + name
+}
 
-	if language == french {
-		return frenchHelloPrefix + name
-	}
+//In Go public functions start with a capital letter and private ones start with a lowercase.
+func greetingPrefix(language string) (prefix string) {
 
-	return englishHelloPrefix + name
+	// adds switch for efficientcy
+	switch language {
+	case french:
+		prefix = frenchHelloPrefix
+	case spanish:
+		prefix = spanishHelloPrefix
+	case german:
+		prefix = germanHelloPrefix
+	default:
+		prefix = englishHelloPrefix
+	}
+	// returns what ever prefix is set to
+	return
 }
 
 func main() {
